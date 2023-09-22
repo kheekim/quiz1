@@ -8,26 +8,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.mit.dao.TwoVO;
-import edu.mit.service.TwoService;
+import edu.mit.logic.MyLogic3;
+import edu.mit.service.QuizService;
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
+@AllArgsConstructor
 @RequestMapping("/quiz/**")
 public class TwoController {
 		
-	
+		private QuizService service;
 	
 		@GetMapping("/quiz2")
 		public void numberGet() {
 		
 		}
 		
+
+		
 		@PostMapping("/quiz2")
-		public void numberpost(TwoVO vo) {
-			
-			log.info(vo);
-			
+		public String numberpost(TwoVO vo, Model model, RedirectAttributes rttr) {
+			log.info("수집된 내용:"+vo);
+			model.addAttribute("sum", service.allsum(vo));
+			return "/quiz/result";
 		
 		}
 }
