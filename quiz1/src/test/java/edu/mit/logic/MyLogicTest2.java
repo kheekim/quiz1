@@ -1,7 +1,6 @@
 package edu.mit.logic;
 
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.extern.log4j.Log4j;
 
