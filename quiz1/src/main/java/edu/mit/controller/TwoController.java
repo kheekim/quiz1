@@ -29,10 +29,13 @@ public class TwoController {
 
 		
 		@PostMapping("/quiz2")
-		public String numberpost(TwoVO vo, Model model, RedirectAttributes rttr) {
+		public String numberpost(TwoVO vo) {
 			log.info("수집된 내용:"+vo);
-			model.addAttribute("sum", service.allsum(vo));
+			service.number(vo);
+			
 			return "/quiz/result";
 		
 		}
+		
+		
 }
